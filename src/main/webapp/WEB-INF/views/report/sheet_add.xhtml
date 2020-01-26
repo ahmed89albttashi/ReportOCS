@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui" >
+    <h:body>
+
+        <ui:composition template="/WEB-INF/views/template/reporter_template.xhtml">
+
+            <ui:define name="content">
+                <p:panel  id="basic"  >
+                    <form action="#{mvc.getBasePath()}/report/sheet/add" method="POST" enctype="multipart/form-data">    
+
+                        <h3>Adding Sheet</h3>
+                        <div class="ui-g">
+                            <p:outputLabel for="@next" value="File Name" class="ui-g-2" /> 
+                            <p:inputText id="filename" class="ui-g-4" />
+                        </div>
+
+                        <div class="ui-g">
+                            <p:outputLabel for="@next" value="Reported On" class="ui-g-2" /> 
+                            <p:datePicker id="reported_on" class="ui-g-4" pattern="dd/MM/yyyy" showIcon="true" keepInvalid="false" immediate="true" />
+                        </div>
+
+                        <div class="ui-g">
+                            <p:outputLabel for="@next"  value="Description" class="ui-g-2"/>
+                            <p:inputTextarea id="description" class="ui-g-4" />
+                        </div>
+                        <div class="ui-g">
+                            <label for="xlsfile" class="ui-g-2" >Spread Excel File</label>
+                            <input type="file" name="xlsfile" accept=".xls,.xlsx" class="ui-g-4" />
+                            <!--                        <p:outputLabel for="@next"  value="Spread Excel File" class="ui-g-2"/>
+                            <p:fileUpload  name="xlsfile" accept=".xls,.xlsx" class="ui-g-4" mode="simple"/>
+                            -->
+                        </div>
+                        <hr/>
+                        <button class="ui-priority-primary" type="submit">Upload</button>
+
+
+                    </form>
+                </p:panel>
+
+            </ui:define>
+
+
+        </ui:composition>
+
+    </h:body>
+
+</html>
